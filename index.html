@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaiwoo's Digital Audio Quiz</title>
+    <meta name="description" content="Test your knowledge about digital audio files and technology">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--links to normalize, Google Fonts & local stylesheets for grid & layout-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="index.css" type="text/css">
+    <link rel="stylesheet" href="grid.css" type="text/css">
+    
+</head>
+
+<body>
+
+    <!--header -->
+    <header role="banner">
+        <h1 class="banner-title">Jaiwoo's Digital Audio Quiz</h1>
+
+        <div class="col-4 home-button hidden">
+            <h3>Home</h3>
+        </div>
+        <div class="col-8 tracker hidden">
+            <h3 class="question-number">Question: <span></span> / 10  </h3>
+            <h3 class="score">Score: <span>0</span></h3>
+        </div>
+    </header>
+
+
+    <main role="main">
+
+        <!--start page section to be display on page load and trigger quiz start-->
+        <section class="start-page" role="contentinfo" aria-label="Jaiwoo's Audio quiz start page">
+            <h2 class="start-page-heading">Ready to test your knowledge of Digital Audio?</h2>
+            <div class="start-page-text">
+                <p> Click on the waveform below to learn more on Wikipedia then come back 
+                    and hit Get Started to take the quiz!</p>
+            </div>
+            <a href="https://en.wikipedia.org/wiki/Digital_audio" target="_blank"><img class="start-page-img" src="https://cloudinary-res.cloudinary.com/image/upload/c_fill,w_770/dpr_2.0,f_auto,fl_lossy,q_auto/waveform_post.png"
+                alt="a graph of a digital audio signal"></a>
+            
+            <button class="getstarted-btn">
+                <span>Get Started!</span>
+            </button>
+        </section>
+
+
+        <!--this section is hidden on load, contains all content for questions-->
+        <section class="question-container hidden" role="contentinfo" aria-label="A question with 4 possible answers.">
+
+        
+            <!--question #-->
+            <div class="question-header">
+                <h3 class="question-number">Question # <span></span></h3>
+            </div>
+
+            <!--question form with radio buttons, <span> text & submit button, *.preventDefault*-->
+            <form class="question-form">
+                <fieldset>
+                    <legend class="question-text">Please select the best answer.</legend>
+
+                    <div class="radios-container">
+
+                        <div class="answer-container one">
+                            <input type="radio" value="Answer 1" name="answer" id="answer1" required>
+                            <label for="answer1" class="answer1"></label>
+                        </div>
+
+                        <div class="answer-container two">
+                            <input type="radio" value="Answer 2" name="answer" id="answer2" required>
+                            <label for="answer2" class="answer2"></label>
+                        </div>
+
+                        <div class="answer-container three">
+                            <input type="radio" value="Answer 3" name="answer" id="answer3" required>
+                            <label for="answer3" class="answer3"></label>
+                        </div>  
+
+                        <div class="answer-container four">
+                            <input type="radio" value="Answer 4" name="answer" id="answer4" required>
+                            <label for="answer4" class="answer4"></label>
+                        </div>
+
+                    </div>
+
+                    <div class="submit-container">
+                        <input type="submit" value="submit" id="question-form-submit">
+                        <label for="question-form-submit" class="submit-btn"></label>
+                    </div>
+                    
+                            
+                </fieldset>
+            </form>
+        </section>
+        
+        <!--feedback container with next button hidden on load-->
+        <section class="feedback-container hidden" role="contentinfo" aria-label="Feedback for previously answered question.">
+            <div class="answer-type">
+                <span>Correct Answer!</span>
+            </div>
+            <div class="correct-answer hidden">
+                <p>The correct answer is: <span></span></p>
+            </div>
+            <button class="next-button">
+                <span>next</span>
+            </button>
+        </section>
+
+
+        <!--section for results and restart button, hidden on load-->
+        <section class="results-container hidden" role="contentinfo" aria-label="Results and final score for quiz with option to restart.">
+            <div class="results-text">
+                <p>Nice Job! You got <span class="final-score"></span> out of 10 questions correct. 
+                Click the restart button to try again. Learn more about Digital Audio at 
+                <a href="https://en.wikipedia.org/wiki/Digital_audio" target="_blank">this</a>
+                Wikipedia page.</p>
+            </div>
+            <button class="restart-btn">
+                <span>Restart Quiz!</span>
+            </button>
+        </section>
+
+    </main>
+    
+    <!--footer content info-->
+    <footer role="contentinfo">
+        <div class="created-by"><span>Created By Jaiwoo</span></div>
+        <div class="email-link"><span>Email: <a href="mailto:info@jaiwoo.me">info@jaiwoo.me</a></span></div>
+    </footer>
+
+    <!--links to JQuery, index.js & datastore.js-->
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="questionstore.js"></script>
+    <script src="index.js"></script>
+    
+</body>
+</html>
