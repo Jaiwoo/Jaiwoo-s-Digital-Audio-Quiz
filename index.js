@@ -13,9 +13,6 @@ $('.start-page').on('click', '.getstarted-btn', event => {
     $('.banner-title').addClass('hidden');
     $('.home-button').removeClass('hidden');
     $('body').addClass('body-gradient');
-
-    //for debugging
-    console.log('the quiz has started!');
 })
 
 
@@ -79,21 +76,13 @@ $('.question-form').on('submit', function (event) {
         //iterate global score on correct answer
         score++;
         $('.score span').text(`${score}`);
-        //for debugging
-        console.log(`Correct Answer!`);
     }
     else {
         answerType = false;
-        //for debugging
-        console.log(`Incorrect Answer`);
     }
 
     //iterate global index to prime for flow after feedback is given for current question
     currentQuestionIndex++;
-
-    //for debugging
-    console.log(`the user chose ${userAnswer}`);
-    console.log(`the correct answer is ${correctAnswer}`);
 
     //trigger feedback display
     renderFeedbackContainer(answerType);
@@ -126,9 +115,6 @@ function renderFeedbackContainer (answerType) {
     //hide question-container and show feedback-container
     $('.question-form').toggleClass("hidden");
     $('.feedback-container').toggleClass("hidden");
-
-    //for debugging
-    console.log(`score is ${score} / 10`);
 }
 
 
@@ -141,15 +127,9 @@ $('.next-button').on('click', event => {
     //next question starts logic from top again
     if (currentQuestionIndex <= questionsSTORE.length - 1) {
         generateQuestion(currentQuestionIndex);
-        //for debugging
-        //console.clear();
-        console.log(`on to question # ${currentQuestionIndex + 1}`);
     }
     else {
         renderResultsContainer();
-        //for debugging
-        //console.clear();
-        console.log('we made it to the end!');
     }
 })
 
@@ -176,10 +156,6 @@ $('.restart-btn').on('click', event => {
     //hide results page
     $('.results-container').toggleClass("hidden");
     $('header').removeClass('hidden');
-
-    //for debugging
-    console.clear();
-    console.log('the quiz has started!');
 })
 
 
